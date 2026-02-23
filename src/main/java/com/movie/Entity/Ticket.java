@@ -11,7 +11,7 @@ public class Ticket {
     private Long id;
 
     private String movie;
-    private int members;
+    private Integer members;
 
     public Ticket() {}
 
@@ -32,11 +32,11 @@ public class Ticket {
         this.movie = movie;
     }
 
-    public int getMembers() {
+    public Integer getMembers() {
         return members;
     }
 
-    public void setMembers(int members) {
+    public void setMembers(Integer members) {
         this.members = members;
     }
 }

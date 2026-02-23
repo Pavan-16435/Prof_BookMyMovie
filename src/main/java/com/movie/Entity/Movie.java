@@ -14,11 +14,11 @@ public class Movie {
     private Long id;
 
     private String name;
-    private int tickets;
+    private Integer tickets;
 
     public Movie() {}
 
-    public Movie(String name, int tickets) {
+    public Movie(String name, Integer tickets) {
         this.name = name;
         this.tickets = tickets;
     }
@@ -35,11 +35,11 @@ public class Movie {
         this.name = name;
     }
 
-    public int getTickets() {
+    public Integer getTickets() {
         return tickets;
     }
 
-    public void setTickets(int tickets) {
+    public void setTickets(Integer tickets) {
         this.tickets = tickets;
     }
 }

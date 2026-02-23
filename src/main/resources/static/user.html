@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/style.css">
+
+<div class="navbar">
+    <h3>User Dashboard</h3>
+    <button onclick="logout()">Logout</button>
+</div>
+<div class="header">Book Tickets</div>
+
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Available Tickets</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="movieTable"></tbody>
+    </table>
+</div>
+
+<div class="card" style="margin: 20px auto;">
+    <h2>Book Ticket</h2>
+
+    <input id="movieName" placeholder="Movie Name">
+    <input id="quantity" type="number" placeholder="No. of Tickets">
+
+    <button class="btn-secondary" onclick="bookTicket()">Book</button>
+</div>
+
+<script src="/user.js"></script>

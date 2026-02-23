@@ -1,9 +1,5 @@
 package com.movie.Controller;
-
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.movie.Entity.Movie;
+import com.movie.Entity.Ticket;
 import com.movie.Model.ResponseMessage;
 import com.movie.Service.MovieService;
-
+import com.movie.Service.TicketService;
 
 @RestController
 @RequestMapping("/user")
@@ -24,10 +20,14 @@ public class UserController {
     @Autowired
     private MovieService movieService;
 
+    @Autowired
+    private TicketService ticketService;
+
     @GetMapping("/movies")
     public ResponseEntity<ResponseMessage> getAllMovies() {
-        List<Movie> movies = movieService.getAllMovies();
-        return ResponseEntity.ok(new ResponseMessage(200, "Movies fetched successfully", movies));
+        return ResponseEntity.ok(
+            new ResponseMessage(200, "Movies fetched successfully", movieService.getAllMovies())
+        );
     }
 
     @PutMapping("/book/{movieName}")
@@ -36,10 +36,18 @@ public class UserController {
             @RequestParam int quantity) {
 
         try {
+            // 1️⃣ reduce tickets from movie
             movieService.bookTicket(movieName, quantity);
-            return ResponseEntity.ok(new ResponseMessage(200, "Ticket booked successfully", null));
+
+            // 2️⃣ save ticket record
+            Ticket ticket = ticketService.bookTicket(movieName, quantity);
+
+            return ResponseEntity.ok(
+                new ResponseMessage(200, "Ticket booked successfully", ticket)
+            );
+
         } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+            return ResponseEntity.badRequest()
                     .body(new ResponseMessage(400, e.getMessage(), null));
         }
     }

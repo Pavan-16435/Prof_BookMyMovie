@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="/style.css">
+
+<div class="navbar">
+    <h3>Admin Panel</h3>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<div class="header">Admin Dashboard</div>
+
+<div class="card" style="margin: 30px auto;">
+    <h2>Add Movie</h2>
+
+    <input id="name" placeholder="Movie Name">
+    <input id="tickets" type="number" placeholder="Tickets">
+
+    <button onclick="addMovie()">Add Movie</button>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Tickets</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="movieTable"></tbody>
+    </table>
+</div>
+
+<script src="/admin.js"></script>

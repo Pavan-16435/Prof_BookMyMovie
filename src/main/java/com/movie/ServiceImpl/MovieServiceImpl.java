@@ -59,4 +59,15 @@ public class MovieServiceImpl implements MovieService {
         movieRepository.deleteById(id);
     }
 
+	@Override
+	public Movie updateMovie(Long id, Movie newMovie) {
+		  Movie existing = movieRepository.findById(id)
+		            .orElseThrow(() -> new RuntimeException("Movie not found"));
+
+		    existing.setName(newMovie.getName());
+		    existing.setTickets(newMovie.getTickets());
+
+		    return movieRepository.save(existing);
+	}
+
 }

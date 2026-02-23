@@ -1,0 +1,179 @@
+/* ===== GLOBAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+    min-height: 100vh;
+}
+
+/* ===== CENTER CARD ===== */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: #ffffff;
+    padding: 25px 30px;
+    width: 380px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ===== INPUTS ===== */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* ===== BUTTONS ===== */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* ===== LINKS ===== */
+.link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* ===== TABLE ===== */
+.table-container {
+    width: 90%;
+    margin: 30px auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
+tr:hover {
+    background: #f1f1f1;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.btn-danger {
+    background: #dc3545;
+}
+
+.btn-danger:hover {
+    background: #b52a37;
+}
+
+.btn-secondary {
+    background: #28a745;
+}
+
+.btn-secondary:hover {
+    background: #1e7e34;
+}
+
+/* ===== HEADER ===== */
+.header {
+    background: #007bff;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: #1f2933;
+    color: white;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.navbar button {
+    width: auto;
+    padding: 8px 14px;
+    background: #dc3545;
+}
+
+.navbar button:hover {
+    background: #b52a37;
+}
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card, .table-container {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+button {
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.03);
+}

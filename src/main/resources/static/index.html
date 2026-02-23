@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Ticket Booking System</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* landing page specific */
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            color: #1f2933;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            width: 300px;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .feature-card button {
+            width: auto;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div style="width: 90%; max-width: 1000px;">
+
+        <!-- HERO -->
+        <div class="hero">
+            <h1>🎬 Movie Ticket Booking System</h1>
+            <p>Make your time a fun time with family and friends and with loved one's🍟🍕🍟</p>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="grid">
+
+            <!-- AUTH -->
+            <div class="feature-card">
+                <h3>Register</h3>
+                <p>
+                    Step into your love zone
+                </p>
+                <button onclick="goLogin()">Login / Register</button>
+            </div>
+
+            <!-- ADMIN -->
+            <div class="feature-card">
+                <h3>Admin</h3>
+                <p>
+                    Come on add new movies to refresh 
+                </p>
+                <button class="btn-secondary" onclick="goAdmin()">Admin Dashboard</button>
+            </div>
+
+            <!-- USER -->
+            <div class="feature-card">
+                <h3>User</h3>
+                <p>
+                    Make your day and time a good one by watching good movie
+                </p>
+                <button onclick="goUser()">User Dashboard</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function goLogin() {
+        window.location.href = "/login.html";
+    }
+
+    function goAdmin() {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user || user.role !== "ADMIN") {
+            alert("Please login as Admin");
+            window.location.href = "/login.html";
+            return;
+        }
+        window.location.href = "/admin.html";
+    }
+
+    function goUser() {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user || user.role !== "USER") {
+            alert("Please login as User");
+            window.location.href = "/login.html";
+            return;
+        }
+        window.location.href = "/user.html";
+    }
+</script>
+
+</body>
+</html>

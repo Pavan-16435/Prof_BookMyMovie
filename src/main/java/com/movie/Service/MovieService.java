@@ -10,4 +10,5 @@ public interface MovieService {
     boolean bookTicket(String movieName, int quantity);
     
     void deleteMovie(Long id);
+    public Movie updateMovie(Long id, Movie newMovie);
 }
