@@ -36,10 +36,10 @@ public class UserController {
             @RequestParam int quantity) {
 
         try {
-            // 1️⃣ reduce tickets from movie
+  
             movieService.bookTicket(movieName, quantity);
 
-            // 2️⃣ save ticket record
+  
             Ticket ticket = ticketService.bookTicket(movieName, quantity);
 
             return ResponseEntity.ok(

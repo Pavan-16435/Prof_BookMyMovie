@@ -24,16 +24,16 @@ function login() {
     .then(res => res.json())
     .then(data => {
 
-        // ✅ handle failure FIRST
+    
         if (!data.data) {
             alert(data.message);
             return;
         }
 
-        // ✅ store user safely
+     
         localStorage.setItem("user", JSON.stringify(data.data));
 
-        // ✅ role-based redirect
+       
         if (data.data.role === "ADMIN") {
             window.location.href = "/admin.html";
         } else {
